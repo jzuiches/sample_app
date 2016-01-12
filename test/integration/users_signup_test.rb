@@ -25,6 +25,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       }
 
     end
-
+    assert is_logged_in?
   end
 end
