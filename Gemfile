@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'bcrypt'
+gem 'pg'
 gem 'bootstrap-sass', '3.2.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -36,7 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'sqlite3'
+
   gem 'web-console'
   gem 'spring'
 end
@@ -49,7 +50,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
+
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
 end
