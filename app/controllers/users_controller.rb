@@ -8,9 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def index
-    @users = User.all
-  end
+
 
 
   def new
@@ -56,6 +54,9 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def index
+    @users = User.all
+  end
 
 
 #private methods cannot be called by an instance of a class. they can be called by other methods in the class. it sends the messege to self
