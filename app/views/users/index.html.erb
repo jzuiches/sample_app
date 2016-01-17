@@ -1,0 +1,9 @@
+<% provide(:title, "All Patrollers") %>
+<h1>All Patrollers<h1>
+
+  <ul class="patrollers">
+    <% @users.each do |user| %>
+    <li><%= user.name %></li>
+      <li><%= user.email %></li>
+        <% end %>
+      </ul>
