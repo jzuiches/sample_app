@@ -3,7 +3,7 @@ class UsersController < ApplicationController
    before_action :logged_in_user, only: [:edit, :update, :show]
    #this constrains that the user can only see their info
    before_action :correct_user,   only: [:edit, :update, :show]
-   before_action :admin, only: [:index, :destroy]
+   before_action :admin_user, only: [:index, :destroy]
   def show
     @user = User.find(params[:id])
   end
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 #the create method gives user_params to a new user object
   def create
     @user = User.new(user_params)
+    admin_add
     if @user.save
       #when the user saves the log_in method is called
       log_in @user
@@ -41,6 +42,13 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def admin_add
+    if ENV['ADMIN_ARRAY'].split.include?(@user.email)
+      @user.admin = true
+    end
+  end
+
 
   def destroy
     User.find(params[:id]).destroy
