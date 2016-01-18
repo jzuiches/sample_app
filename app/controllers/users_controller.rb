@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #logged in users can get to these actions
-   before_action :logged_in_user, only: [:edit, :update, :show]
+   before_action :logged_in_user, only: [:edit, :update, :show, :destroy]
    #this constrains that the user can only see their info
    before_action :correct_user,   only: [:edit, :update, :show]
    before_action :admin_user, only: [:index, :destroy]
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 5)
   end
 
 
