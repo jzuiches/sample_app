@@ -27,7 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-
+gem 'jquery_mobile_rails'
+gem 'browser'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
