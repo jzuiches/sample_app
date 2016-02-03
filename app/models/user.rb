@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :possible_training_divisions
+  has_many :training_divisions, through: :possible_training_divisions
+  has_many :trainings, through: :training_divisions
   attr_accessor :remember_token, :activation_token, :reset_token
   before_create :create_activation_digest
   before_save :downcase_email
