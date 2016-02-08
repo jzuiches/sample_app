@@ -11,3 +11,18 @@
   password = "password"
   User.create!(name: name, email: email, password: password, password_confirmation: password,activated: true, activated_at: Time.zone.now)
 end
+
+
+training_type = ["Beacon & Recco", "Lift Evac", "Rope Rescue", "Avalanche Routes"]
+training_type.each do |t|
+  TrainingDivision.create!(training_type: t )
+end
+
+users = User.order(:created_at).take(6)
+10.times do
+  training_division = TrainingDivision.all.sample
+  location = Faker::Address.street_name
+  training_date = Faker::Date.backward(21)
+  trainer = Faker::Name.first_name
+  users.each { |user| user.trainings.create!(training_division: training_division, location: location, training_date: training_date, trainer: trainer) }
+end
