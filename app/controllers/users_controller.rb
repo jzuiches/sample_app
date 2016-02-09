@@ -6,6 +6,7 @@ class UsersController < ApplicationController
    before_action :admin_user, only: [:index, :destroy]
   def show
     @user = User.find(params[:id])
+    @trainings = @user.trainings
   end
 
 
