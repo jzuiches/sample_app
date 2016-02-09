@@ -22,10 +22,6 @@ class TrainingTest < ActiveSupport::TestCase
     assert_not @training.valid?
   end
 
-  test "date should be present" do
-    @training.training_date = nil
-    assert_not @training.valid?
-  end
 
   test "training division should be present" do
     @training.training_division = nil
