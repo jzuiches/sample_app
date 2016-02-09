@@ -1,8 +1,9 @@
 class TrainingsController < ApplicationController
-  def new
+  before_action :logged_in_user, only: [:create, :destroy]
+  def create
   end
 
-  def index
+  def destroy
   end
 
   def show

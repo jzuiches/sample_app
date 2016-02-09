@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @trainings = @user.trainings
+    @training_divisions = TrainingDivision.all
   end
 
 
@@ -71,15 +72,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def logged_in_user
-      #this method tests to see if the user is logged in. if he is not store his location and send him to log in url
-      unless logged_in?
-        #for friendly forwarding is user is not logged in but tries to do something that they need to be logged in for. store location method is in the sessions helper
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
+
 
     def correct_user
 

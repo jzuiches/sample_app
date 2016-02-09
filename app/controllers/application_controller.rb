@@ -4,4 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  private
+
+   def logged_in_user
+      #this method tests to see if the user is logged in. if he is not store his location and send him to log in url
+      unless logged_in?
+        #for friendly forwarding is user is not logged in but tries to do something that they need to be logged in for. store location method is in the sessions helper
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
 end

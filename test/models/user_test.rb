@@ -85,8 +85,8 @@ class UserTest < ActiveSupport::TestCase
 
    test "trainings associated with user will be destroyed with deleting user" do
     @user.save
-    @training_division = @user.training_divisions.create!(training_type: "beacons")
-    @user.trainings.create!(location: "Headwall", trainer: "Lel", training_division_id: @training_division, training_date: "01/01/2016")
+    @training_division = TrainingDivision.create!(training_type: "beacons")
+    @user.trainings.create!(location: "Headwall", trainer: "Lel", training_division_id: @training_division.id, training_date: "01/01/2016")
     assert_difference 'Training.count', -1 do
       @user.destroy
         end

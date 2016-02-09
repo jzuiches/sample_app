@@ -7,4 +7,20 @@
       </h1>
     </section>
   </aside>
+   <div class="col-md-8">
+    <% if @user.trainings.any? %>
+      <h3>Trainings (<%= @user.trainings.count %>)</h3>
+
+      <ol class= "trainings">
+        <% @training_divisions.each do |td| %>
+        <% unless @trainings.where("training_division_id=?", td.id).empty? %>
+        <h3 class="training_type"><%= td.training_type %></h3>
+        <%= render @trainings.where("training_division_id=?", td.id) %>
+        <% end %>
+        <% end %>
+      </ol>
+
+      <% end %>
+
+    </div>
 </div>
