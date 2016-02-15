@@ -1,0 +1,14 @@
+<%= form_for @training do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+<div class="field">
+  <%= f.label :location %>
+    <%= f.text_field :location %>
+    <%= f.label :trainer %>
+    <%= f.text_field :trainer %>
+    <%= f.label :training_date %>
+    <%= f.date_field :training_date %>
+<%= f.hidden_field :training_division_id, :value => params[:id] %>
+  </div>
+  <%= f.submit "Submit Training", class: "btn btn-primary" %>
+  <% end %>

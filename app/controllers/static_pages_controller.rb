@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @training = current_user.trainings.build if logged_in?
   end
 
   def help

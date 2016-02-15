@@ -13,7 +13,7 @@
 end
 
 
-training_type = ["Beacon & Recco", "Lift Evac", "Rope Rescue", "Avalanche Routes"]
+training_type = ["Beacon & Recco", "Lift Evac", "Rope Rescue", "Avalanche Routes", "Funitel Evac", "Toboggan", "Dog Training", "Misc."]
 training_type.each do |t|
   TrainingDivision.create!(training_type: t )
 end
@@ -24,5 +24,5 @@ users = User.order(:created_at).take(6)
   location = Faker::Address.street_name
   training_date = Faker::Date.backward(21)
   trainer = Faker::Name.first_name
-  users.each { |user| user.trainings.create!(training_division: training_division, location: location, training_date: training_date, trainer: trainer) }
+  users.each { |user| user.trainings.create!(training_division_id: training_division.id, location: location, training_date: training_date, trainer: trainer) }
 end
