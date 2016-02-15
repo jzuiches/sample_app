@@ -20,9 +20,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, session: { email: @user.email, password: 'password' }
     assert is_logged_in?
-    assert_redirected_to trainings_path
+    assert_redirected_to training_divisions_path
         follow_redirect!
-    assert_template 'trainings/index'
+    assert_template 'training_divisions/index'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(@user)
