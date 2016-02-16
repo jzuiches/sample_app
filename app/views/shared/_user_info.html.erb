@@ -1,3 +1,7 @@
+<div class="profile">
 <h1><%= current_user.name %></h1>
 <span><%= link_to "Profile", current_user %></span>
 <span><%= pluralize(current_user.trainings.count, "training") %></span>
+<!-- <button class="btn btn-primary profile" type="button"><%= link_to "Profile", current_user %><span class="badge"><%= pluralize(current_user.trainings.count, "training") %></span>
+</button> -->
+</div>

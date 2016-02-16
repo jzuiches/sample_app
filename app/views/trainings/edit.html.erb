@@ -1,0 +1,19 @@
+<% provide(:title, "Edit training") %>
+<h1>Update training</h1>
+<div class="row">
+  <div class"col-md-6 col-md-offset-3">
+    <%= form_for(@training) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+
+    <%= f.label :trainer %>
+    <%= f.text_field :trainer %>
+
+    <%= f.label :training_date %>
+    <%= f.date_field :training_date %>
+
+    <%= f.submit "Save Changes" %>
+    <% end %>
+  </div>
+</div>

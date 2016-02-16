@@ -20,15 +20,20 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     admin_add
-    if @user.save
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account"
-      redirect_to root_url
+    if ENV['PATROLLER_ARRAY'].split.include?(@user.email)
+      if @user.save
+        @user.send_activation_email
+        flash[:info] = "Please check your email to activate your account"
+        redirect_to root_url
       #when the user saves the log_in method is called
       # log_in @user
       # redirect_to trainings_path
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:info] = "Must be a Squaw Valley patroller"
+      redirect_to root_url
     end
   end
 
@@ -51,6 +56,9 @@ class UsersController < ApplicationController
       @user.admin = true
     end
   end
+
+  def patroller_check
+    if ENV['PATROLLER_ARRAY'].split.include?(@user.email)
 
 
   def destroy

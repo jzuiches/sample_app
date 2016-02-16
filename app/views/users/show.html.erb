@@ -11,6 +11,7 @@
     <% if @user.trainings.any? %>
       <h3>Trainings (<%= @user.trainings.count %>)</h3>
 
+
       <ol class= "trainings">
         <% @training_divisions.each do |td| %>
         <% unless @trainings.where("training_division_id=?", td.id).empty? %>

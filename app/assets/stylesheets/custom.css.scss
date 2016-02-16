@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 $light-gray: #777;
 
 @mixin box_sizing {
@@ -49,6 +50,7 @@ img {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
+  font-family:'Open Sans Condensed', sans-serif;
   line-height: 1;
 }
 
@@ -173,11 +175,26 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
+
   @include box_sizing;
+}
+
+.profile {
+  padding-bottom: 1em;
+}
+.td_type {
+  border-bottom: 1px solid black;
+}
+
+.edit_user {
+  font-family:'Open Sans Condensed', sans-serif;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 input {
   height: auto !important;
+
 }
 
 #error_explanation {
@@ -208,6 +225,27 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+#submit_training{
+
+}
+#training_location, #training_trainer, #training_training_date  {
+    @include box_sizing;
+    outline: none;
+    display: block;
+    width: 100%;
+
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    }
+  .field {
+
+    label{
+    font-family:'Open Sans Condensed', sans-serif;
+    }
+  }
 
 /* trainings */
 
@@ -256,7 +294,7 @@ aside {
   margin:0px;
   text-align: center;
   color: black;
-
+  font-family:'Open Sans Condensed', sans-serif;
   }
   p{
   margin-top: 2em;

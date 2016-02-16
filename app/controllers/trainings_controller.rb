@@ -1,8 +1,6 @@
 class TrainingsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   def create
-
-
     @training = current_user.trainings.create(training_params)
     if @training.save
       flash[:success] = "Training saved"
@@ -16,7 +14,13 @@ class TrainingsController < ApplicationController
   end
 
   def show
+    @training.find(params[:id])
   end
+
+  def edit
+    @training = Training.find(params[:id])
+  end
+
 
   private
     def training_params

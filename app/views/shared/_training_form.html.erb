@@ -10,5 +10,5 @@
     <%= f.date_field :training_date %>
 <%= f.hidden_field :training_division_id, :value => params[:id] %>
   </div>
-  <%= f.submit "Submit Training", class: "btn btn-primary" %>
+  <%= f.submit "Submit Training", class: "btn btn-primary", id: "submit_training" %>
   <% end %>

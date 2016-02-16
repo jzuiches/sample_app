@@ -3,5 +3,7 @@
   <%= image_tag("Cross-Pattee-Heraldry.svg.png") %>
 <h1 id="home_name">Squaw Valley Ski Patrol</h1>
 <p>Training</p>
+<% unless logged_in? %>
 <%= link_to "Sign Up", signup_path, class: "btn btn-lg btn-primary" %>
+<%  end %>
 </div>

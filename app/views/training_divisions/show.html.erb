@@ -1,8 +1,10 @@
  <% if logged_in? %>
+ <div class="container">
    <div class="row">
      <section class="user_info">
        <%= render 'shared/user_info' %>
      </section>
+     <h4 class="td_type"><%= @training_division.training_type %> Training Form</h4>
      <section class="training_form">
        <%= render "shared/training_form" %>
      </section>
@@ -10,3 +12,4 @@
    <% else %>
    <% redirect_to root_path %>
    <% end %>
+ </div>

@@ -1,0 +1,2 @@
+class PossibleTrainingDivisionController < ApplicationController
+end
