@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= @user.name %>
+        <%= @user.name %> <%= @user.last_name %>
       </h1>
     </section>
   </aside>
@@ -20,8 +20,10 @@
         <% end %>
         <% end %>
       </ol>
-
+      <% else %>
+      </div>
+      </div>
+      <h2>You have no logged trainings</h2>
       <% end %>
 
-    </div>
-</div>
+

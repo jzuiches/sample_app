@@ -11,6 +11,7 @@ $light-gray: #777;
 
 /* miscellaneous */
 
+
 .debug_dump {
   clear: both;
   float: left;
@@ -229,7 +230,7 @@ input {
 #submit_training{
 
 }
-#training_location, #training_trainer, #training_training_date  {
+#training_location, #training_trainer, #training_training_date , #training_training_time, #training_comments {
     @include box_sizing;
     outline: none;
     display: block;
@@ -261,8 +262,11 @@ input {
     padding-top: 0;
   }
   .location {
-    display: block;
+    display: inline-block;
     margin-left: 60px;
+  }
+  .glyphicon {
+  float: right;
   }
   .trainer {
   display: block;

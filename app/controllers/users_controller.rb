@@ -32,8 +32,8 @@ class UsersController < ApplicationController
         render 'new'
       end
     else
-      flash[:danger] = "Must be a Squaw Valley patroller, unless you're Bear!!!"
-      redirect_to root_url
+      flash[:danger] = "Must be a Squaw Valley patroller"
+      render 'new'
     end
   end
 
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
 
   #normal params but has special require and permit methods
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :last_name, :email, :password, :password_confirmation)
     end
 
 
