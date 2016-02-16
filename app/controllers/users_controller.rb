@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         render 'new'
       end
     else
-      flash[:info] = "Must be a Squaw Valley patroller"
+      flash[:danger] = "Must be a Squaw Valley patroller, unless you're Bear!!!"
       redirect_to root_url
     end
   end
@@ -56,10 +56,6 @@ class UsersController < ApplicationController
       @user.admin = true
     end
   end
-
-  def patroller_check
-    if ENV['PATROLLER_ARRAY'].split.include?(@user.email)
-
 
   def destroy
     User.find(params[:id]).destroy
