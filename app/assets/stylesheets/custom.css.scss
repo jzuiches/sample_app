@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);*/
 $light-gray: #777;
 
 @mixin box_sizing {
@@ -51,7 +51,6 @@ img {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family:'Open Sans Condensed', sans-serif;
   line-height: 1;
 }
 
@@ -188,7 +187,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .edit_user {
-  font-family:'Open Sans Condensed', sans-serif;
+
   padding-left: 2em;
   padding-right: 2em;
 }
@@ -244,7 +243,7 @@ input {
   .field {
 
     label{
-    font-family:'Open Sans Condensed', sans-serif;
+    /*font-family:'Open Sans Condensed', sans-serif;*/
     }
   }
 
@@ -265,7 +264,7 @@ input {
     display: inline-block;
     margin-left: 60px;
   }
-  .glyphicon {
+  #arrow {
   float: right;
   }
   .trainer {

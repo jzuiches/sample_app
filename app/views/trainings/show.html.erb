@@ -1,0 +1,17 @@
+<h1><%= @training_division.training_type.singularize %> Training  </h1>
+  <h2><%= @training.training_date %></h2>
+  <% if @training.training_division_id == 4 %>
+  <h4>Avy Route: <%= @training.location %></h4>
+  <% else %>
+<h4>Location: <%= @training.location %></h4>
+<% end %>
+<h4>Trainer: <%= @training.trainer %></h4>
+<h4>Comments: <%= @training.comments %></h4>
+<h4>Time: <%= @training.training_time %> <% if @training.training_time == 1 %>
+    hr.
+    <% elsif @training.training_time == nil %>
+    <% else %>
+    hrs.
+    <% end %>
+  </h4>
+<h4>Training code: <%= @training.training_code %></h4>

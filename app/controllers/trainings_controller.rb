@@ -14,7 +14,8 @@ class TrainingsController < ApplicationController
   end
 
   def show
-    @training.find(params[:id])
+    @training = Training.find(params[:id])
+    @training_division = TrainingDivision.find(@training.training_division_id)
   end
 
   def edit
@@ -24,7 +25,7 @@ class TrainingsController < ApplicationController
 
   private
     def training_params
-      params.require(:training).permit(:location, :training_date, :trainer, :training_division_id)
+      params.require(:training).permit(:location, :training_date, :trainer, :training_division_id, :comments, :training_time, :training_code)
     end
 end
 

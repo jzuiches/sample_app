@@ -1,5 +1,7 @@
 <li id="training-<%= training.id %>">
   <span class="training_date">Date: <%= training.training_date %></span>
-  <span class="location">Location: <%= training.location %></span><a><span class= "glyphicon glyphicon-chevron-right"></span></a>
+  <span class="location">Location: <%= training.location %></span><%= link_to training, class: "btn btn-default", id: "arrow" do %>
+  <i class="glyphicon glyphicon-chevron-right"></i>
+  <% end %>
   <span class="trainer">Trainer: <%= training.trainer %></span>
 </li>
