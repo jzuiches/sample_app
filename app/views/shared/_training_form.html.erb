@@ -5,10 +5,15 @@
 
     <% if params[:id] == "4" %>
     <%= f.label :avalanche_route %>
+    <%= f.select(:location) do %>
+    <% @routes.each do |r| %>
+    <%= content_tag(:option, r.first, value: r.last) %>
+    <% end %>
+    <% end %>
     <% else %>
     <%= f.label :location %>
-    <% end %>
     <%= f.text_field :location %>
+    <% end %>
     <%= f.label :trainer %>
     <%= f.text_field :trainer %>
     <%= f.label :training_hours %>
@@ -17,13 +22,16 @@
     <%= f.text_field :comments %>
     <%= f.label :training_date %>
     <%= f.date_field :training_date %>
+    <% unless params[:id] =="4" %>
     <%= f.label :training_codes %>
     <%= f.select(:training_code) do %>
-    <% [['5001 - Transceiver-Single Burial', 5001],['5002 - Transceiver-Multiple Burial', 5002], ['5100 - RECCO'], ['5101 - RECCO-Single Burial'], ['5102 - RECCO-Multiple Burial']].each do |c| %>
+
+    <% @codes.each do |c| %>
     <%= content_tag(:option, c.first, value: c.last) %>
     <% end %>
     <% end %>
-    <%= render 'shared/training_codes' %>
+    <% end %>
+
 <%= f.hidden_field :training_division_id, :value => params[:id] %>
   </div>
   <%= f.submit "Submit Training", class: "btn btn-primary", id: "submit_training" %>

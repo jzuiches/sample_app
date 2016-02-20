@@ -16,6 +16,7 @@ class TrainingsController < ApplicationController
   def show
     @training = Training.find(params[:id])
     @training_division = TrainingDivision.find(@training.training_division_id)
+
   end
 
   def edit
