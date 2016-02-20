@@ -1,5 +1,5 @@
 <li id="training-<%= training.id %>">
-  <span class="training_date">Date: <%= training.training_date %></span>
+  <span class="training_date">Date: <%= training.training_date.strftime("%B #{training.training_date.day.ordinalize}, %Y") %></span>
   <span class="location">Location: <%= training.location %></span><%= link_to training, class: "btn btn-default", id: "arrow" do %>
   <i class="glyphicon glyphicon-chevron-right"></i>
   <% end %>
