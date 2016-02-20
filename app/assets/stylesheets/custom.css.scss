@@ -92,7 +92,10 @@ p {
 /* header */
 nav.head li {
   font-size: 1.5em;
+  a:active {
+  color: white;
   }
+}
 
 #logo {
   float: left;
@@ -255,7 +258,7 @@ input {
     }
   }
 #training_training_date{
- padding: 10px;
+ padding: 7px;
 }
 
 /* trainings */
