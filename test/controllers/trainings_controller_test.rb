@@ -20,4 +20,13 @@ class TrainingsControllerTest < ActionController::TestCase
     assert_redirected_to login_url
   end
 
+  test "should redirect destroy for wrong training" do
+    log_in_as(users(:joseph))
+    training = trainings(:beacon)
+    assert_no_difference "Training.count" do
+      delete :destroy, id: training
+    end
+    assert_redirected_to root_url
+  end
+
 end

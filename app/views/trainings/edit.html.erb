@@ -1,19 +1,41 @@
 <% provide(:title, "Edit training") %>
 <h1>Update training</h1>
+<div class="container">
 <div class="row">
   <div class"col-md-6 col-md-offset-3">
     <%= form_for(@training) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
+    <% if @training.training_division_id == 4 %>
+    <%= f.label :avalanche_route %>
+    <%= f.select(:location) do %>
+    <% @routes.each do |r| %>
+    <%= content_tag(:option, r.first, value: r.last) %>
+    <% end %>
+    <% end %>
+    <% else %>
     <%= f.label :location %>
     <%= f.text_field :location %>
-
+    <% end %>
     <%= f.label :trainer %>
     <%= f.text_field :trainer %>
-
+    <%= f.label :training_hours %>
+    <%= f.number_field(:training_time, in: 0.25..10.0, step: 0.25) %>
+    <%= f.label :comments %>
+    <%= f.text_field :comments %>
     <%= f.label :training_date %>
-    <%= f.date_field :training_date %>
+    <%= f.date_field :training_date, id: "edit_training_date" %>
+    <% unless params[:id] =="4" %>
+    <%= f.label :training_codes %>
+    <%= f.select(:training_code) do %>
+
+    <% @codes.each do |c| %>
+    <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+    <% end %>
+    <% end %>
 
     <%= f.submit "Save Changes" %>
     <% end %>
   </div>
+</div>
 </div>

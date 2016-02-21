@@ -240,7 +240,7 @@ input {
 #submit_training{
 
 }
-#training_location, #training_trainer, #training_training_date , #training_training_time, #training_comments {
+#training_location, #training_trainer, #training_training_date , #training_training_time, #training_comments, #edit_training_date{
     @include box_sizing;
     outline: none;
     display: block;
@@ -328,6 +328,13 @@ aside {
 
 
   }
+}
+
+#delete {
+  margin-left: 2em;
+}
+#edit {
+  margin-left: 2em;
 }
 
 

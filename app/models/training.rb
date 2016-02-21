@@ -4,4 +4,5 @@ class Training < ActiveRecord::Base
   default_scope -> { order(training_date: :desc) }
   validates :user_id, presence: true
   validates :training_division_id, presence: true
+  validates :training_date, presence: true
 end
