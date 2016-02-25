@@ -18,7 +18,7 @@ class TrainingDivisionsController < ApplicationController
     elsif params[:id]  == "6"
       @codes = ['General Toboggan Training', 2000], ['Single Tail Rope', 2001], ['Double Tail Rope', 2002], ['Toboggan Belay', 2003], ['Chair Bracket Shirley Lake', 2004], ['Chair Bracket Solitude', 2005]
     elsif params[:id] == '7'
-      @codes = ['Dog Training', 6000]
+      @codes = ['Dog Training', 6000], ['Dog Validation', 6000]
     else params[:id] == "8"
       @codes = ['First Aid', 6100], ['Helicopter Safety', 6004], ['Incident Investigation', 6201], ['Ski Clinic', 6001], ['Other', 6000]
     end

@@ -85,18 +85,32 @@ p {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $light-gray;
   }
 }
 
 /* header */
 nav.head li {
-  font-size: 1.5em;
+  font-size: 1.3em;
   a:active {
   color: white;
   }
 }
+#login {
+  a {
+  color:#fff;
+  text-decoration: none;
+  line-height: 1;
+  padding-right: 1em;
+  }
+  a:hover {
+  color: $light-gray;
+  }
+}
 
+.divider {
+   border-bottom: 1px solid $gray-lighter;
+}
 #logo {
   float: left;
   margin-right: 10px;
@@ -109,7 +123,7 @@ nav.head li {
 }
 
 #logo:hover {
-  color: #fff;
+  color: $light-gray;
   text-decoration: none;
 }
 
@@ -337,5 +351,31 @@ aside {
   margin-left: 2em;
 }
 
+/*animated hamburger*/
+.navbar-toggle .icon-bar:nth-of-type(2) {
+    top: 1px;
+}
 
+.navbar-toggle .icon-bar:nth-of-type(3) {
+    top: 2px;
+}
+
+.navbar-toggle .icon-bar {
+    position: relative;
+    transition: all 500ms ease-in-out;
+}
+
+.navbar-toggle.active .icon-bar:nth-of-type(1) {
+    top: 6px;
+    transform: rotate(45deg);
+}
+
+.navbar-toggle.active .icon-bar:nth-of-type(2) {
+    background-color: transparent;
+}
+
+.navbar-toggle.active .icon-bar:nth-of-type(3) {
+    top: -6px;
+    transform: rotate(-45deg);
+}
 
