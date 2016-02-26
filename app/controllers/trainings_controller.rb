@@ -1,13 +1,19 @@
 class TrainingsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user, only: [:destroy]
+
+  def new
+    @training = current_user.trainings.new
+  end
+
   def create
+
     @training = current_user.trainings.create(training_params)
     if @training.save
       flash[:success] = "Training saved"
       redirect_to training_divisions_url
     else
-      render 'static_pages/home'
+      redirect_to training_divisions_url
     end
   end
 
