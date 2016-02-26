@@ -1,5 +1,5 @@
 class TrainingsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user
   before_action :correct_user, only: [:destroy]
 
   def new
@@ -13,7 +13,10 @@ class TrainingsController < ApplicationController
       flash[:success] = "Training saved"
       redirect_to training_divisions_url
     else
-      redirect_to training_divisions_url
+       @training_division = TrainingDivision.find(@training.training_division_id)
+       flash[:danger] = "Please add a date"
+      p @training_division
+      redirect_to training_division_url(@training_division)
     end
   end
 

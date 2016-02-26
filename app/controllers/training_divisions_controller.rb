@@ -1,5 +1,5 @@
 class TrainingDivisionsController < ApplicationController
-
+before_action :logged_in_user
   def index
     @training_divisions = TrainingDivision.all
   end
