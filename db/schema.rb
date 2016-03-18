@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216052532) do
+ActiveRecord::Schema.define(version: 20160228164214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20160216052532) do
     t.integer  "training_division_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "training_codes", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "training_name"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "trainings_training_codes_id"
   end
 
   create_table "training_divisions", force: :cascade do |t|
@@ -39,8 +47,14 @@ ActiveRecord::Schema.define(version: 20160216052532) do
     t.datetime "updated_at",           null: false
     t.date     "training_date"
     t.text     "comments"
-    t.integer  "training_code"
     t.float    "training_time"
+  end
+
+  create_table "trainings_training_codes", force: :cascade do |t|
+    t.integer  "training_id"
+    t.integer  "training_code_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,4 +78,6 @@ ActiveRecord::Schema.define(version: 20160216052532) do
   add_foreign_key "possible_training_divisions", "training_divisions"
   add_foreign_key "possible_training_divisions", "users"
   add_foreign_key "trainings", "users"
+  add_foreign_key "trainings_training_codes", "training_codes"
+  add_foreign_key "trainings_training_codes", "trainings"
 end

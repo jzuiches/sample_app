@@ -7,7 +7,7 @@
     <%= f.label :avalanche_route %>
     <%= f.select(:location) do %>
     <% @routes.each do |r| %>
-    <%= content_tag(:option, r.first, value: r.last) %>
+    <%= content_tag(:option, r.training_name, value: r.code) %>
     <% end %>
     <% end %>
     <% else %>
@@ -21,17 +21,12 @@
     <%= f.label :comments %>
     <%= f.text_field :comments %>
     <%= f.label :training_date %>
-    <%= f.date_field :training_date %>
+    <%= f.date_field :training_date, placeholder: "" %>
     <% unless params[:id] =="4" %>
-    <%= f.label :training_codes %>
-    <%= f.select(:training_code) do %>
-
-    <% @codes.each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last) %>
+     <%= f.fields_for :trainings_training_codes do |ff| %>
+    <%= render 'shared/training_codes', :f => ff %>
     <% end %>
     <% end %>
-    <% end %>
-
 <%= f.hidden_field :training_division_id, :value => params[:id] %>
   </div>
   <%= f.submit "Submit Training", class: "btn btn-primary", id: "submit_training" %>

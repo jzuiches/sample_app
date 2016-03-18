@@ -9,13 +9,17 @@ class TrainingsController < ApplicationController
   def create
 
     @training = current_user.trainings.create(training_params)
+    @training_codes = TrainingCode.all
+
+
     if @training.save
+
+
       flash[:success] = "Training saved"
       redirect_to training_divisions_url
     else
        @training_division = TrainingDivision.find(@training.training_division_id)
-       flash[:danger] = "Please add a date"
-      p @training_division
+       flash[:danger] = "Please, at least enter a date"
       redirect_to training_division_url(@training_division)
     end
   end
@@ -66,8 +70,9 @@ class TrainingsController < ApplicationController
 
   private
     def training_params
-      params.require(:training).permit(:location, :training_date, :trainer, :training_division_id, :comments, :training_time, :training_code)
+      params.require(:training).permit(:location, :training_date, :trainer, :training_division_id, :comments, :training_time, trainings_training_codes_attributes: [:training_code_id])
     end
+
 
     def correct_user
       @training = current_user.trainings.find_by(id: params[:id])
