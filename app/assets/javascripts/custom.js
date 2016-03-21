@@ -1,5 +1,6 @@
 var ready;
 var remove_fields;
+
 ready = function () {
 
         $(".navbar-toggle").on("click", function () {
@@ -9,15 +10,18 @@ ready = function () {
 
           $(this).toggleClass("active");
         });
-        $('.hidden-codes').hide();
-        $('#training_trainings_training_codes').click(function(){
-          $('.hidden-codes').show();
+        $('.hidden_fields').hide();
+        $('#add').click(function(){
+
+          $(".hidden_fields").show();
         });
-        $('#remove_link').click(function() {
-          console.log("hello")
-        $(".fields input").attr('value', 1);
-        $(".fields").hide()
+        $('#add-btn').click(function() {
+          $(".hidden_fields").after($(".hidden_fields").html());
+
       });
+        $("#remove-btn").click(function() {
+          $(this).closest('.hidden_fields').hide();
+        })
 
 
 

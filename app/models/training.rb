@@ -8,4 +8,6 @@ class Training < ActiveRecord::Base
   validates :training_division_id, presence: true
   validates :training_date, presence: true
   accepts_nested_attributes_for :trainings_training_codes
+
 end
+

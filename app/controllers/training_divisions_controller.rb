@@ -8,7 +8,7 @@ before_action :logged_in_user
     @training = current_user.trainings.build if logged_in?
     @training_division = TrainingDivision.find(params[:id])
     @training_codes = TrainingCode.all
-    @training.trainings_training_codes.build
+    2.times { @training.trainings_training_codes.build }
     if params[:id] == "1"
 
       @codes = @training_codes[0..6]

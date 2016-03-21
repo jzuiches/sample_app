@@ -1,6 +1,5 @@
 <div class="fields">
-    <%= f.label :training_codes, class: "shown_code_field" %> <%= f.hidden_field :_destroy %>
-    <%= link_to "remove","#", id: "remove_link" %>
+  <%= f.label "Training Code" %>
     <%= f.select(:training_code_id, class: "shown_code_field") do %>
 
     <% @codes.each do |c| %>

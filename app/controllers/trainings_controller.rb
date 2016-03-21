@@ -7,14 +7,8 @@ class TrainingsController < ApplicationController
   end
 
   def create
-
     @training = current_user.trainings.create(training_params)
-    @training_codes = TrainingCode.all
-
-
     if @training.save
-
-
       flash[:success] = "Training saved"
       redirect_to training_divisions_url
     else

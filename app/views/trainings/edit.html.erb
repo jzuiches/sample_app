@@ -26,7 +26,7 @@
     <%= f.date_field :training_date, id: "edit_training_date" %>
     <% unless params[:id] =="4" %>
     <%= f.label :training_codes %>
-    <%= f.select(:training_code) do %>
+    <%= f.select(:training_codes) do %>
 
     <% @codes.each do |c| %>
     <%= content_tag(:option, c.first, value: c.last) %>
