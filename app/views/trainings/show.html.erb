@@ -14,8 +14,12 @@
     hours
     <% end %>
   </h4>
-<h4>Training code: <% @training.training_codes.each do |t| %>
-  <span class="training_name"><%= t.training_name %> </span>
+
+<h4>Training <%= "code".pluralize(@training.training_codes.count) %>:
+  <% @training.training_codes.each do |t| %>
+    <ul>
+  <li class="training_name"><%= t.training_name %> </li>
+  </ul>
   <% end %></h4>
 <%= link_to @training, method: :delete, data: { confirm: "You sure you want to delete this training?" }, class: "btn btn-default", id: "delete" do %>
   <i class="glyphicon glyphicon-trash"> Delete</i>
