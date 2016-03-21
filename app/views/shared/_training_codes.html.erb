@@ -1,10 +1,11 @@
 <div class="fields">
-  <%= f.label "Training Code" %>
+    <%= f.label :training_codes %>
     <%= f.select(:training_code_id, class: "shown_code_field") do %>
 
     <% @codes.each do |c| %>
     <%= content_tag(:option, c.training_name, value: c.id, class: "shown_code_field") %>
     <% end %>
     <% end %>
-
+    <%= f.check_box :_destroy %>
+    <%= f.label "Remove" %>
 </div>

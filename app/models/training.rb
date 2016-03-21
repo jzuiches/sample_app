@@ -7,7 +7,7 @@ class Training < ActiveRecord::Base
   validates :user_id, presence: true
   validates :training_division_id, presence: true
   validates :training_date, presence: true
-  accepts_nested_attributes_for :trainings_training_codes
+  accepts_nested_attributes_for :trainings_training_codes, allow_destroy: true, reject_if: lambda {|attributes| attributes[:training_code_id].blank?}
 
 end
 

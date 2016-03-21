@@ -25,12 +25,8 @@
     <%= f.label :training_date %>
     <%= f.date_field :training_date, id: "edit_training_date" %>
     <% unless params[:id] =="4" %>
-    <%= f.label :training_codes %>
-    <%= f.select(:training_codes) do %>
-
-    <% @codes.each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last) %>
-    <% end %>
+    <%= f.fields_for :trainings_training_codes do |ff| %>
+    <%= render 'shared/training_codes', :f => ff %>
     <% end %>
     <% end %>
 

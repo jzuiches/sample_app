@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160228164214) do
     t.date     "training_date"
     t.text     "comments"
     t.float    "training_time"
+    t.integer  "training_code_id"
   end
 
   create_table "trainings_training_codes", force: :cascade do |t|
