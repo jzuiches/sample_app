@@ -10,22 +10,16 @@ ready = function () {
 
           $(this).toggleClass("active");
         });
-        $('.hidden_fields').hide();
-        $('#add').click(function(){
-
-          $(".hidden_fields").show();
-        });
-        $('#add-btn').click(function() {
-          $(".hidden_fields").after($(".hidden_fields").html());
-
-      });
-        $("#remove-btn").click(function() {
-          $(this).closest('.hidden_fields').hide();
+        $(".remove_link").click(function(){
+          $(this).prev("input").attr('value', true)
+          $(this).parent().slideUp()
         })
 
 
 
+
       };
+
 
 
 
