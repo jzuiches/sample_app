@@ -24,8 +24,10 @@
     <%= f.date_field :training_date, placeholder: "" %>
     <% unless params[:id] =="4" %>
      <%= f.fields_for :trainings_training_codes do |ff| %>
+     <div id = "fields_container">
     <%= render 'shared/training_codes', :f => ff %>
     <% end %>
+    </div>
     <% end %>
 <%= f.hidden_field :training_division_id, :value => params[:id] %>
   </div>
