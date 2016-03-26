@@ -70,7 +70,7 @@ function addCodesField() {
       var trainingCodesAnchorText = document.createTextNode("remove");
       removeLink.appendChild(trainingCodesAnchorText)
       field.appendChild(removeLink);
-      var addButton = document.getElementById("addAddress");
+      var addButton = document.getElementById("addCodesBtn");
       var addButtonClone = addButton.cloneNode(true);
       field.appendChild(addButtonClone);
 
