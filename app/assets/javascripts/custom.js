@@ -1,24 +1,7 @@
 var ready;
 var remove_fields;
+var field;
 
-ready = function () {
-
-        $(".navbar-toggle").on("click", function () {
-            $(this).toggleClass("active");
-        });
-        $(".navbar-nav li").hover(function() {
-
-          $(this).toggleClass("active");
-        });
-        $('body').on('click', '.remove_link',function(){
-          debugger
-          $(this).prev("input").attr('value', true)
-
-          $(this).parent().slideUp()
-
-          return false;
-        })
-      };
 
 
 function addCodesField() {
@@ -35,8 +18,8 @@ function addCodesField() {
       destroyAttributeTrainingCode = "training[trainings_training_codes_attributes][0][_destroy]".replace("0", mSec)
       destroyAttributeTrainingCodeId = "training_trainings_training_codes_attributes_0__destroy".replace("0", mSec)
      //creates the field div and label element
-      var field = document.createElement("div")
-      field.classList.add("fields")
+     var field = document.createElement("div")
+      field.classList.add("fields");
       var labelCodes = document.createElement("label");
       labelCodes.setAttribute("for", labelAttributeTrainingCode)
       var trainingCodesLabelText = document.createTextNode("Training codes");
@@ -70,14 +53,64 @@ function addCodesField() {
       var trainingCodesAnchorText = document.createTextNode("remove");
       removeLink.appendChild(trainingCodesAnchorText)
       field.appendChild(removeLink);
-      var addButton = document.getElementById("addCodesBtn");
-      var addButtonClone = addButton.cloneNode(true);
-      field.appendChild(addButtonClone);
+      // var addButton = document.getElementsByClassName("addCodesBtn");
+      // var addButtonClone = addButton.cloneNode(true);
+      var addButton = document.createElement("input");
+      addButton.setAttribute("type", "button")
+            addButton.setAttribute("name", "commit");
+      addButton.setAttribute("value", "Add More Training Codes");
+      addButton.setAttribute("class", "addCodesBtn");
+      addButton.setAttribute("onclick", "addCodesField()");
 
-      console.log(field);
-      document.getElementById('fields_container').appendChild(field)
 
-}
+      field.appendChild(addButton);
+
+      addCodesBtn(field);
+      };
+
+
+
+function addCodesBtn(field) {
+
+   document.getElementById('fields_container').appendChild(field)
+      for (var i = 0; i < $(".fields").size(); i++){
+      if (i == $('.fields').size() - 1){
+        $($('.fields .addCodesBtn')[i]).show();
+      } else {
+
+        $($('.fields .addCodesBtn')[i]).hide();
+      }
+    }
+  };
+
+ready = function () {
+
+        $(".navbar-toggle").on("click", function () {
+            $(this).toggleClass("active");
+        });
+        $(".navbar-nav li").hover(function() {
+
+          $(this).toggleClass("active");
+        });
+        $('body').on('click', '.remove_link',function(){
+
+
+          $(this).prev("input").attr('value', true)
+
+          $(this).parent().remove();
+         for (var i = 0; i < $(".fields").size(); i++){
+          debugger
+      if (i == $('.fields').size() - 1){
+        $($('.fields .addCodesBtn')[i]).show();
+      } else {
+
+        $($('.fields .addCodesBtn')[i]).hide();
+      }
+    }
+
+          return false;
+        })
+      };
 
 
 
