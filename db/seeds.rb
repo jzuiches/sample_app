@@ -5,12 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-2.times do |n|
-  name  = Faker::Name.name
-  email = Faker::Internet.email
-  password = "password"
-  User.create!(name: name, email: email, password: password, password_confirmation: password,activated: true, activated_at: Time.zone.now)
-end
+# 2.times do |n|
+#   name  = Faker::Name.name
+#   email = Faker::Internet.email
+#   password = "password"
+#   User.create!(name: name, email: email, password: password, password_confirmation: password,activated: true, activated_at: Time.zone.now)
+# end
 
 
 training_type = ["Beacon & Recco", "Lift Evac", "Rope Rescue", "Avalanche Routes", "Funitel Evac", "Toboggan", "Dog Training", "Misc."]
