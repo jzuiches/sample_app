@@ -50,6 +50,7 @@ function addCodesField() {
       removeLink.setAttribute("class", "remove_link")
       removeLink.setAttribute("href", "#");
 
+
       var trainingCodesAnchorText = document.createTextNode("remove");
       removeLink.appendChild(trainingCodesAnchorText)
       field.appendChild(removeLink);
@@ -92,6 +93,7 @@ ready = function () {
 
           $(this).toggleClass("active");
         });
+
         $('body').on('click', '.remove_link',function(){
 
 

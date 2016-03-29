@@ -272,7 +272,7 @@ input {
     }
   }
 #training_training_date{
-
+  padding-top: .3em;
 }
 
 /* trainings */
@@ -303,6 +303,7 @@ input {
     color: $gray-light;
     display: block;
     margin-left: 60px;
+
   }
 
 }
@@ -397,4 +398,12 @@ aside {
   color: white;
   background: #ff5050;
   border-radius: 0.25em;
+  padding: .3em;
+}
+
+.remove_link {
+display:inline-block;
+padding-left: 1em;
+padding-bottom: 1em;
+
 }
