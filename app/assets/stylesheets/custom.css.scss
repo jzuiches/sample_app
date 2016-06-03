@@ -92,6 +92,8 @@ p {
 /* header */
 nav.head li {
   font-size: 1.3em;
+  a:focus { outline: 0;
+   }
   a:active {
   color: white;
   }

@@ -26,12 +26,14 @@
     <%= f.date_field :training_date, id: "edit_training_date" %>
     <% unless params[:id] =="4" %>
     <%= f.fields_for :trainings_training_codes do |ff| %>
-    <%= render 'shared/training_codes', :f => ff %>
+    <div id = "fields_container">
+    <%= render 'shared/edit_training_codes', :f => ff %>
     <% end %>
+    </div>
     <% end %>
-
+</div>
     <%= f.submit "Save Changes", class: "btn btn-primary" %>
     <% end %>
-  </div>
+
 </div>
 </div>

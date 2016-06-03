@@ -2,15 +2,21 @@ class TrainingDivisionsController < ApplicationController
 before_action :logged_in_user
   def index
     @training_divisions = TrainingDivision.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @training_divisions }
+    end
   end
 
   def show
     @training = current_user.trainings.build if logged_in?
+
     @training_division = TrainingDivision.find(params[:id])
+
     @training_codes = TrainingCode.all
+
     @training.trainings_training_codes.build
     if params[:id] == "1"
-
       @codes = @training_codes[0..6]
     elsif params[:id] == "2"
       @codes = @training_codes[7..12]
@@ -27,5 +33,4 @@ before_action :logged_in_user
     end
     @routes = @training_codes[38..69]
   end
-
 end
