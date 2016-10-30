@@ -29,6 +29,7 @@
     <div id = "fields_container">
     <%= render 'shared/edit_training_codes', :f => ff %>
     <% end %>
+    <%= submit_tag "Add More Training Codes", :type =>  "button", :class => "addCodesBtn", :onclick => 'addCodesField()'%>
     </div>
     <% end %>
 </div>

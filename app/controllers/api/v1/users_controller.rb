@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
 
-  before_create :generate_authentication_token
+  # before_action :generate_authentication_token
 
   def create
   end
@@ -24,9 +24,11 @@ class Api::V1::UsersController < ApplicationController
 
   end
 
-  def generate_authentication_token
-    loop do
-      self.authentication_token = SecureRandom.base64(64)
-      break unlis User.find_by(authentication_token: authentication_token)
+  # def generate_authentication_token
+  #   loop do
+  #     self.authentication_token = SecureRandom.base64(64)
+  #     break unless User.find_by(authentication_token: authentication_token)
+  #   end
+  # end
 
 end
