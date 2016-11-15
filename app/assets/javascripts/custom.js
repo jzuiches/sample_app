@@ -112,6 +112,14 @@ ready = function () {
 
           return false;
         })
+
+        $('body').on('click', '.edit_remove_link', function(e){
+          e.preventDefault();
+            $(this).prev("input").attr('value', true)
+          console.log('THIS', $(this).parent('.removable_field'));
+          $(this).parent().remove();
+
+        })
       };
 
 

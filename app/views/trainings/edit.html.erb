@@ -9,7 +9,7 @@
     <%= f.label :avalanche_route %>
     <%= f.select(:location) do %>
     <% @routes.each do |r| %>
-    <%= content_tag(:option, r.first, value: r.last) %>
+    <%= content_tag(:option, r.training_name, value: r.training_name) %>
     <% end %>
     <% end %>
     <% else %>
@@ -25,16 +25,26 @@
     <%= f.label :training_date %>
     <%= f.date_field :training_date, id: "edit_training_date" %>
     <% unless params[:id] =="4" %>
-    <%= f.fields_for :trainings_training_codes do |ff| %>
     <div id = "fields_container">
-    <%= render 'shared/edit_training_codes', :f => ff %>
+    <% f.object.training_codes.map do |code| %>
+
+
+    <div class = "removable_field">
+
+    <%= render 'shared/edit_training_codes', :f => f, :code => code %>
+    <%= link_to 'remove', '#', class: 'edit_remove_link' %>
+    </div>
+
+
+
     <% end %>
     <%= submit_tag "Add More Training Codes", :type =>  "button", :class => "addCodesBtn", :onclick => 'addCodesField()'%>
+
     </div>
     <% end %>
-</div>
+
     <%= f.submit "Save Changes", class: "btn btn-primary" %>
     <% end %>
-
+</div>
 </div>
 </div>

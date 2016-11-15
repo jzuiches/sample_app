@@ -7,7 +7,7 @@
     <%= f.label :avalanche_route %>
     <%= f.select(:location) do %>
     <% @routes.each do |r| %>
-    <%= content_tag(:option, r.training_name, value: r.code) %>
+    <%= content_tag(:option, r.training_name, value: r.training_name) %>
     <% end %>
     <% end %>
     <% else %>

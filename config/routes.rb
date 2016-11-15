@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users
+      resources :trainings
+      post 'login' => 'sessions#create'
+      delete 'logout' => 'sessions#destroy'
     end
   end
 
