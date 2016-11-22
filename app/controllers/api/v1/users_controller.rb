@@ -1,8 +1,27 @@
 class Api::V1::UsersController < ApplicationController
+  before_action :authenticate_request!, only: [:index, :show, :update, :destroy]
 
-  # before_action :generate_authentication_token
 
   def create
+    @user = User.new(user_params)
+    admin_add
+    # if ENV['PATROLLER_ARRAY'].split.include?(@user.email)
+    puts "in user create #{user_params}"
+      if @user.save
+        puts "user has saved"
+        @user.send_activation_email
+        render plain: "Please check your email to activate your account"
+
+      #when the user saves the log_in method is called
+      # log_in @user
+      # redirect_to trainings_path
+      else
+        render plain: "account creation unsuccessful"
+      end
+    # else
+    #   flash[:danger] = "Must be a Squaw Valley patroller"
+    #   render 'new'
+    # end
   end
 
 
@@ -10,12 +29,11 @@ class Api::V1::UsersController < ApplicationController
 
 
   def show
-    puts request.headers['Set-Cookie']
+
     user = User.find(params[:id])
     puts "authenticating..."
-    if request.headers['Set-Cookie'] == nil
-      return api_error(status: 404)
-    elsif user && ActiveSupport::SecurityUtils.secure_compare(user.authentication_token, request.headers['Set-Cookie'])
+
+    if user
       @current_user = user
       render json: @current_user, serializer: Api::V1::UserSerializer
     else
@@ -38,5 +56,14 @@ class Api::V1::UsersController < ApplicationController
       render file: "public/500.html"
     end
 
+    def user_params
+      params.permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def admin_add
+      if ENV['ADMIN_ARRAY'].split.include?(@user.email)
+        @user.admin = true
+      end
+    end
 
 end

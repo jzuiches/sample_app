@@ -1,15 +1,16 @@
 class TrainingDivisionsController < ApplicationController
-before_action :logged_in_user
+# before_action :logged_in_user
   def index
     @training_divisions = TrainingDivision.all
-    respond_to do |format|
-      format.html
-      format.json { render json: @training_divisions }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @training_divisions }
+    # end
   end
 
   def show
-    @training = current_user.trainings.build if logged_in?
+    @training = current_user.trainings.build
+    # if logged_in?
 
     @training_division = TrainingDivision.find(params[:id])
 

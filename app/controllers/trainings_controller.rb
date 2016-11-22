@@ -7,7 +7,9 @@ class TrainingsController < ApplicationController
   end
 
   def create
+    p "training p #{training_params}"
     @training = current_user.trainings.create(training_params)
+    puts @training
     if @training.save
       flash[:success] = "Training saved"
       redirect_to training_divisions_url
@@ -76,4 +78,3 @@ class TrainingsController < ApplicationController
     end
 
 end
-

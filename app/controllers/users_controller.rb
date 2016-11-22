@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   #logged in users can get to these actions
-   before_action :logged_in_user, only: [:edit, :update, :show, :destroy]
-   #this constrains that the user can only see their info
-   before_action :correct_user,   only: [:edit, :update, :show]
-   before_action :admin_user, only: [:index, :destroy]
+  #  before_action :logged_in_user, only: [:edit, :update, :show, :destroy]
+  #  #this constrains that the user can only see their info
+  #  before_action :correct_user,   only: [:edit, :update, :show]
+  #  before_action :admin_user, only: [:index, :destroy]
   def show
     @user = User.find(params[:id])
     @trainings = @user.trainings
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     admin_add
-    if ENV['PATROLLER_ARRAY'].split.include?(@user.email)
+    # if ENV['PATROLLER_ARRAY'].split.include?(@user.email)
       if @user.save
         @user.send_activation_email
         flash[:info] = "Please check your email to activate your account"
@@ -31,10 +31,10 @@ class UsersController < ApplicationController
       else
         render 'new'
       end
-    else
-      flash[:danger] = "Must be a Squaw Valley patroller"
-      render 'new'
-    end
+    # else
+    #   flash[:danger] = "Must be a Squaw Valley patroller"
+    #   render 'new'
+    # end
   end
 
   def edit
@@ -86,7 +86,7 @@ class UsersController < ApplicationController
 
     def admin_user
       #current user method which authenticate a logged in user asks the user object if the admin attribut is true or false. if it is false then it will redirect to root.
-      redirect_to(root_url) unless current_user.admin?
+      redirect_to(root_url) unless current_user
     end
 
 end
